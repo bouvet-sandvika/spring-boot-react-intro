@@ -1,0 +1,40 @@
+#	Copyright 2018, Google LLC.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# [START runtime]
+runtime: nodejs8
+handlers:
+- url: /
+  static_files: build/index.html
+  upload: build/index.html
+  http_headers:
+    Content-Security-Policy: "script-src 'self' 'unsafe-inline';"
+    Referrer-Policy: no-referrer-when-downgrade
+    Strict-Transport-Security: max-age=2592000; includeSubDomains
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
+    Feature-Policy: "camera 'none';
+                     geolocation 'none';
+                     gyroscope 'none';
+                     magnetometer 'none';
+                     midi 'none';
+                     microphone 'none';
+                     speaker 'none';
+                     sync-xhr 'none';
+                     payment 'none'"
+
+- url: /
+  static_dir: build
+
+# [END runtime]

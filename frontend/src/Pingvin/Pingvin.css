@@ -1,0 +1,15 @@
+.pingvin-div {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pingvin-input {
+  font-size: calc(10px + 2vmin);
+  width: 250px;
+}
+
+.pingvin-knapp {
+  font-size: calc(10px + 2vmin);
+  margin-left: 10px;
+}
